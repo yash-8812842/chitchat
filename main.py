@@ -13,7 +13,7 @@ from langchain.prompts import PromptTemplate
 
 
 os.environ["GOOGLE_API_KEY"] = "AIzaSyBfRzQtaS_d6pDoAx-eU-IqCrfQUBr0_Jo"
-path = 'content'
+path = './content'
 
 
 
@@ -23,9 +23,9 @@ path = 'content'
 def get_pdf_text(uploaded_file):
     if uploaded_file is not None:
         for uFile in uploaded_file:
-            with open('content',"wb") as file:
+            with open('./content/Video_Q3_Dataset.txt',"wb") as file:
                 file.write(uFile.getvalue())
-        pptContent = DirectoryLoader('content',loader_cls=UnstructuredFileLoader,loader_kwargs={'mode':"single","strategy":"fast"})
+        pptContent = DirectoryLoader('./content',loader_cls=UnstructuredFileLoader,loader_kwargs={'mode':"single","strategy":"fast"})
         pptContent = pptContent.load()
         return pptContent
 
